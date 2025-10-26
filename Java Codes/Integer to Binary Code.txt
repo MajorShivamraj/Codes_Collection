@@ -1,0 +1,23 @@
+//This is a code to convert integer number to its binary number...
+public class Main {
+    public static void main(String[] args) {
+        int a=251,powers = 0;
+        for(int i=0;i<a;i++){
+            if((int)Math.pow(2,i)<a && (int)Math.pow(2,i+1)>a){
+                powers= i;
+                break;
+            }
+        }
+        System.out.println("The power of 2 is = "+powers);
+        System.out.println("The Binary number for "+a +" is = ");
+        for(int i = powers;i>=0;i--){
+            if((int)Math.pow(2,i)<=a && a!=0){
+                int res = a-(int)Math.pow(2,i);
+                a=res;
+                System.out.print(1);
+            }
+            else{
+                System.out.print(0);
+            }
+        }
+    }

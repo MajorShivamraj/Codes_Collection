@@ -1,0 +1,96 @@
+class Main{
+    //this is a node class...
+    node head=null;
+    public int size;
+    class node{
+        String data;
+        node next;
+
+        //constructor node...
+        node(String data){
+            this.data=data;
+            this.next=null;
+            size++;
+        }
+    }
+
+    //add data in a linked list code....
+    public void add_in_list(String data){
+        node newnode = new node(data);
+        if(head==null){
+            head=newnode;
+            return;
+        }
+
+        newnode.next=head;
+        head=newnode;
+
+    }
+    //Add the data at the end.....
+    public void add_at_end(String data){
+        node newnode = new node(data);
+        node temp = head;
+        if(head==null){
+            head=newnode;
+            return;
+        }
+        while(temp.next != null){
+            temp=temp.next;
+        }
+        temp.next=newnode;
+    }
+    //Printing the data...
+
+    public void delete_from_first(){
+        if(head==null){
+            System.out.println("The list is empty sir");
+            return;
+        }
+        size--;
+        head=head.next;
+    }
+
+    public void delete_from_end(){
+        if(head==null){
+            System.out.println("The list is empty sir");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            return;
+        }
+        node temp=head;
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        size--;
+        temp.next=null;
+    }
+    public void print_size(){
+        System.out.println(size);
+    }
+
+    public void print_data(){
+        node temp=head;
+        if(head==null){
+            System.out.print("The list is empty");
+        }
+        while(temp!=null){
+            System.out.print(temp.data +" -> ");
+            temp=temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Main mn=new Main();
+        mn.add_in_list("a");
+        mn.add_in_list("is");
+        mn.add_at_end("List");
+        mn.add_in_list("This");
+        mn.print_data();
+        mn.delete_from_first();
+        mn.delete_from_end();
+        mn.print_data();
+        mn.print_size();
+    }
+}

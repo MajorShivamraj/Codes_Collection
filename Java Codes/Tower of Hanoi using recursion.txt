@@ -1,0 +1,40 @@
+// Tower of Henoi Solver...
+public class Main {
+    public static int i=0;
+    public static void tower_of_henoi(int n,String src, String help, String dest){
+        i++;
+        if(n==1){
+            System.out.println("Transfer disk "+ n + " from Tower "+src+" To Tower "+dest);
+            return;
+        }
+        tower_of_henoi(n-1,src,dest,help);
+        System.out.println("Transfer disk "+ n + " from Tower "+src+" To Tower "+dest);
+        tower_of_henoi(n-1,help,src,dest);
+
+    }
+    public static void main(String[] args) {
+        int n=1;
+        tower_of_henoi(4,"S","H","D");
+        System.out.println("It took total "+ i+ " Steps");
+    }
+}
+
+
+<<<<<OUTPUT>>>>
+
+Transfer disk 1 from Tower S To Tower H
+Transfer disk 2 from Tower S To Tower D
+Transfer disk 1 from Tower H To Tower D
+Transfer disk 3 from Tower S To Tower H
+Transfer disk 1 from Tower D To Tower S
+Transfer disk 2 from Tower D To Tower H
+Transfer disk 1 from Tower S To Tower H
+Transfer disk 4 from Tower S To Tower D
+Transfer disk 1 from Tower H To Tower D
+Transfer disk 2 from Tower H To Tower S
+Transfer disk 1 from Tower D To Tower S
+Transfer disk 3 from Tower H To Tower D
+Transfer disk 1 from Tower S To Tower H
+Transfer disk 2 from Tower S To Tower D
+Transfer disk 1 from Tower H To Tower D
+It took total 15 Steps

@@ -1,0 +1,46 @@
+print("!!! Welcome to Kon Banega Karodpati !!!")
+question=[["Q1:- What is the National Animal of India ?","Tiger","Lion","Cat","Cow",1],
+["Q2:- What is the national Bird of India ?","Sparrow","Eagle","Picock","pigon",3],
+["Q3:- What is the Capital of India ?","Delhi","Mumbai","Channai","westBengal",1],
+["Q4:- Which planet is known as the Red Planet?","Venus","Mars","Jupiter"," Saturn",3],
+["Q5:- Who wrote the national anthem of India?","Rabindranath Tagore","Mahatma Gandhi","Subhas Chandra Bose","Sarojini Naidu",1],
+["Q6:- Which animal is known as the 'Ship of the Desert'?","Horse","Cat","Rabbit","Camel",4],
+["Q7:- How many continents are there in the world?",5,6,7,8,3],
+["Q8:- Which gas is most abundant in the Earth's atmosphere?","Oxygen","Nitrogen","Methane","CO2",2],
+["Q9:- What is the largest mammal in the world?","Elephant","Blue Whale","Shark","Giraffe",2],
+["Q10:- In which direction does the sun rise?","North","South","East","West",3]
+]
+money=[10000,20000,30000,40000,50000,60000,70000,80000,90000,100000]
+moneys=0
+j=-1
+for i in range(0,10):
+    questions=question[i]
+    correct=questions[5]
+    print(f"{questions[0]} \n")
+    print(f"1){questions[1]}        2){questions[2]}")
+    print(f"3){questions[3]}        4){questions[4]}")
+    #print("\n")
+    choice=int(input("Enter the correct option = "))
+    if(choice==questions[5]):
+        money[i]
+        print(f"Correct Answer You Won Rs.{money[i]}\n\n")
+        j=j+1
+    else:
+        print(f"Wrong Answer !!!")
+        print(f"correct answer is {questions[correct]}\n")
+        if(i>4 and i<7):
+            print(f"You won Rs.{money[4]}") 
+            print(f"Money taking Home Rs.{money[4]}\n\n")
+            break
+        elif(i<=4):
+            print(f"Sorry App Apna Khata Khol Nahi Paye!!")
+            break
+        elif(i>=7 and i<10):
+            print(f"You won Rs.{money[6]}")
+            print(f"Money taking Home Rs.{money[6]}\n\n")
+            break
+        break
+    if(j==9):
+        print(f"You have answered all the Questions Bravo Great !!! BINGO!!!")
+        print(f"Money Taking home Rs.{money[9]}")
+    

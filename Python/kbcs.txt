@@ -1,0 +1,70 @@
+def create_questionpaper():
+    check=1
+    print("!!! It is prefered if you make a Question Paper with 10Q or More....!!!")
+    q=int(input("Number of Questions = "))
+    o=int(input("By Default number of opptions = "))
+    questions=[]
+    for i in range(0,q):
+        question=[]#here this list is inside the for loop because it is getting empty everytime the list is appended in the main list......
+        for j in range(0,o+2):
+            pip=["Q :- ","Option 1:","Option 2:","Option 3:","Option 4:","Answer = "]#here the pip is helping to get the Q, option1, option2.....
+            ques=str(input(f"Enter {pip[j]}"))
+            question.append(ques)
+        print(f"Question {i+1}: addded succesfully !!!")
+        questions.append(question)
+    print(questions)
+    
+    
+def kon_banega_crorepati_code():
+    money=[]
+    j=-1
+    
+    for i in range(1,q+1):
+        money.append(i*10000)# here making the list of price Money[10000,20000,30000,.......]
+    for i in range(0,q):
+        question=questions[i]
+        correct=question[5]
+        print(f"{question[0]} \n")
+        print(f"1){question[1]}        2){question[2]}")
+        print(f"3){question[3]}        4){question[4]}")
+        choice=int(input("Enter the correct option = "))
+        if(choice==question[5]):
+            money[i]
+            print(f"Correct Answer You Won Rs.{money[i]}\n\n")
+            j=j+1
+        else:
+            
+            print(f"Wrong Answer !!!")
+            print(f"correct answer is {question[correct]}\n")
+            if(i>4 and i<7):
+                print(f"You won Rs.{money[4]}") 
+                print(f"Money taking Home Rs.{money[4]}\n\n")
+                break
+            elif(i<=4):
+                print(f"Sorry App Apna Khata Khol Nahi Paye!!")
+                break
+            elif(i>=7 and i<10):
+                print(f"You won Rs.{money[6]}")
+                print(f"Money taking Home Rs.{money[6]}\n\n")
+                break
+            break
+        if(j==(q-1)):
+            print(f"You have answered all the Questions Bravo Great !!! BINGO!!!")
+            print(f"Money Taking home Rs.{money[q-1]}")
+check=0
+while(1):
+    print("This is a Quizing Program ")
+    print("1) Create Question Paper")
+    print("2) Play Kon Banega Crorepati")
+    print("3) Play Quiz  ")
+    
+    choice=int(input("Enter your Choice = "))
+    if(choice==1):
+        create_questionpaper()
+    if(choice==2):
+        if(check==0):
+            print("Sorry No Questions Available !!!")
+        else:
+            print("Welcome to Kon Banega Crorepati")
+            print(f"This is Going to be a match for Rs. {q*10000}")
+            
