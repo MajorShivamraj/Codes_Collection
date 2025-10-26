@@ -1,0 +1,1065 @@
+#include<stdio.h>
+#include<string.h>
+#include <time.h>
+struct gmail
+{
+    char name[100];
+    char middlename[100];
+    char surname[100];
+    int date;
+    int month;
+    int year;
+};//structure defined here
+struct complex
+{
+    int real;
+    int imag;
+};
+void factorial()
+{
+    int a,prod=1,i=1;
+    printf("Factorial of a number represented by:-\n n!=n(n-1)(n-2)(n-3)------------3x2x1 \n\n");
+    printf("enter the number = ");
+    scanf("%d",&a);
+    if (a==0)
+    {
+        printf("the value for 0! = 1 ");
+    }
+    else
+    {
+        while(i<=a)
+        {
+            prod=prod*i;
+            i++;
+        }
+        printf("The value for %d! = %d \n",a,prod);
+        
+    }
+    printf("--------------------------------------");
+    printf("\n");
+}//void factorial loop
+
+float determinant(float matrix[10][10], int n)
+{
+    float det = 0, submatrix[10][10];
+
+    if (n == 2)
+        return (matrix[0][0] * matrix[1][1]) - (matrix[1][0] * matrix[0][1]);
+    else {
+        for (int x = 0; x < n; x++)
+        {
+            int subi = 0; 
+            for (int i = 1; i < n; i++) {
+                int subj = 0; 
+                for (int j = 0; j < n; j++) {
+                    if (j == x)
+                        continue;
+                    submatrix[subi][subj] = matrix[i][j];
+                    subj++;
+                }
+                subi++;
+            }
+            det += (x % 2 == 0 ? 1 : -1) * matrix[0][x] * determinant(submatrix, n - 1);
+        }
+    }
+    return det;
+}
+void calculateAge(int birthYear, int birthMonth, int birthDay, int *ageYears, int *ageMonths, int *ageDays) {
+    time_t now;
+    struct tm *currentTime;
+    time(&now);
+    currentTime = localtime(&now);
+
+    int currentYear = currentTime->tm_year + 1900;
+    int currentMonth = currentTime->tm_mon + 1;
+    int currentDay = currentTime->tm_mday;
+
+    *ageYears = currentYear - birthYear;
+    *ageMonths = currentMonth - birthMonth;
+    *ageDays = currentDay - birthDay;
+
+    // Adjust for negative months or days
+    if (*ageMonths < 0) {
+        (*ageYears)--;
+        *ageMonths += 12;
+    }
+    if (*ageDays < 0) {
+        (*ageMonths)--;
+        *ageDays += 30; // Assuming all months have 30 days
+    }
+}//age calculator
+
+void GIF()
+{float a,b;
+int i,c;
+ printf("Enter the Number  GIF[x] = ");
+    scanf("%f",&a);
+printf("______________________\n");
+    if (a>0)
+    {
+        for (i=0;i<=a;i++)
+        {
+            b=a-i;
+            if(b>0 && b<1) 
+            {
+                printf("The GIF value for [%.2f] is = %d",a,i);
+                break;
+            }
+            else if (b==0)
+            {
+                printf("The GIF value for [%.2f] is = %d",a,i);
+            break;   
+            }
+        }
+    }
+    else if(a<0)
+    {   c= (int)a ;
+        for (i=a;i<=c;i--){
+        b=a-i;
+        if (b>0 && b<1)
+        {
+            printf("The GIF value for [%.2f] is = %d",a,i);
+            break;
+        }
+        else if (b==0)
+            {
+                printf("The GIF value for [%.2f] is = %d",a,i);
+                break;
+            }
+        }
+    }
+    else if (a==0)
+    {
+        printf("The GIF value for [%.0f] is = %d",a,i);
+    }
+   printf("\n\n\n\n");
+}//void gif defined.
+int main()
+{int a,b,bb,gif,ema,fact,matcode,comp;;
+    printf("shree Ganeshay Namah\n");
+    printf("--------------------------------------\n");
+    printf("Hello Friends I am Olive Green \n\n ");
+    printf("I am here to help you out with various intresting fields\n So Let's go and Roll the Intro.\n");
+    while(1){
+    printf("--------------------------------------\n");
+    printf("From the dropdown list select what you want to Explore.\n");
+    printf("--------------------------------------\n\n");
+    printf("Email Creation ----------------------Press = 1\n");
+    printf("Password Creation -------------------Press = 2\n");
+    printf("AAYU --------------------------------press = 3\n");
+    printf("Mathematics -------------------------Press = 4\n\n");
+    printf("Exit --------------------------------Press = 0\n");
+    printf("_____________________________________________\n"); 
+    printf("Opinion = ");
+    scanf("%d",&ema);
+    if (ema==0)
+    {printf("\n\n   ******** THANK YOU ********\n");
+    printf("    Cdt.Shivamraj Babanrao Matkar\n");
+    printf("               (NDA)\n");
+    break;
+    }
+    else if(ema==1)
+    {
+    struct gmail s1;
+    printf("This is a program to help you make your Email Id's more easily\n ");
+    printf("-----------------------------------\n\n");
+    printf("Enter your full name in small letters\n (name/middle name/surname) :: ");
+    scanf("%s %s %s",s1.name,s1.middlename,s1.surname);
+    printf("\n");
+    printf("Enter your date of birth :: ");
+    scanf("%d %d %d",&s1.date,&s1.month,&s1.year);
+    printf("-----------------------------------\n");
+    printf("Here are some suggestions:- \n\n");
+    printf("        %s.%s@gmail.com \n ",s1.name,s1.surname);
+    printf("       %s.%s@gmail.com \n",s1.name,s1.middlename);
+    printf("        %s.%d%d@gmail.com \n",s1.name,s1.date,s1.year);
+    printf("        %s%d%s@gmail.com\n",s1.name,s1.month,s1.middlename);
+    printf("        %s.%s%d@gmail.com",s1.middlename,s1.surname,s1.date);
+    printf("-----------------------------------\n\n");
+    printf("Choose your favourite Email ID and also have a look to our password create feature to make strong passwords\n\n");
+    }
+    else if(ema==2)
+    {
+    printf("We can also work on passwords here\n");
+    char pass[100];
+    int i=0, px=0, py=0, pz=0; 
+    while(1) {
+         printf("_________________________\n");
+        printf("Enter your password = ");
+        scanf("%99s", pass); 
+       printf("\n");
+    // Reset px, py, and pz for each iteration
+        px = py = pz = 0;
+       i = 0; // Reset i to 0 for each iteration of the loop
+     while(i < strlen(pass)) {
+            if (pass[i]>=32 && pass[i]<=47 || pass[i]>=58 && pass[i]<=64 || pass[i]>=91 && pass[i]<=96 || pass[i]>=123 && pass[i]<=127 ) {
+                px = 1;
+            }
+            else if(pass[i] >= 48 && pass[i] <= 57) {
+                py = 1;
+            }
+            else if(pass[i] >= 65 && pass[i] <= 90 || pass[i] >= 97 && pass[i] <= 122) {
+                pz = 1;
+            }
+            i++;
+        }
+        if(px == 0) {
+            printf("ERROR!! password does not contain a special character\n");
+        }
+        if(py == 0) {
+            printf("ERROR!! password does not contain a numerical value\n");
+        }
+        if(pz == 0) {
+            printf("ERROR!! password does not contain an alphabetical character\n");
+        }
+        if(px == 1 && py == 1 && pz == 1)
+        {
+            printf("Password created Successfully!!!\n\n");
+        printf("-----------------------------------\n");
+            break; 
+        }
+            }
+        }//else loop end
+    //aayu code here come
+    else if(ema==3)
+    {char name[30],opinion;
+    int birthDay,birthMonth,birthYear,om,od,mc,yearx;
+    printf("\nhello friends! i am AAYU an aging portal\n");
+    printf("my work is to calculate your age\n");
+    printf("------------------------------------------\n");
+    printf("may i know your good name = ");
+    scanf("%s",name);
+    printf("Hello %s, I welcome you to this beautiful Portal\n",name);
+    
+    printf("------------------------------------------\n");
+    printf("now i am going to calculate age of my new friend %s\n",name);
+    printf("for this i need your date of birth\n");
+    printf("------------------------------------------\n");
+    printf("Enter your birth year: ");
+    scanf("%d", &birthYear);
+    printf("Enter your birth month: ");
+    scanf("%d", &birthMonth );
+    printf("Enter your birth day: ");
+    scanf("%d", &birthDay);
+    printf("------------------------------------------\n");
+    switch(birthMonth)
+    {
+        case 1:
+        printf("great you are born in January \n");
+        printf("in it we celebrate makar sankranti.\n");
+        break;
+        case 2:
+        printf("great you are born in February\n");
+        printf("in it we celebrate mahashiv ratri.\n");
+        break;
+        case 3:
+        printf("great you are born in March \n");
+        printf("in it we celebrate gudi padwa.\n");
+        break;
+        case 4:
+        printf("great you are born in April\n");
+        printf("in it we celebrate mahaveer jayanti.\n");
+        break;
+        case 5:
+        printf("great you are born in May \n");
+        printf("in it we celebrate buddha pornima.\n");
+        break;
+        case 6:
+        printf("great you are born in June\n");
+        printf("in it we celebrate Eid ul fitr.\n");
+        break;
+        case 7:
+        printf("great you are born in July\n");
+        printf("in it we celebrate sankashti chaturthi.\n");
+        break;
+        case 8:
+        printf("great you are born in August\n");
+        printf("in it we celebrate raksha bandhan.\n");
+        break;
+        case 9:
+        printf("great you are born in September \n");
+        printf("in it we celebrate janmashtami.\n");
+        break;
+        case 10:
+        printf("great you are born in October \n");
+        printf("in it we celebrate diwali.\n");
+        break;
+        case 11:
+        printf("great you are born in November\n");
+        printf("in it we celebrate bhau bij.\n");
+        break;
+        case 12:
+        printf("great you are born in December\n");
+        printf("in it we celebrate christmas.\n");
+        break;
+        default:
+        printf("Congrats you are born in a special 13th month!!! and in it u cellebrate your special birthday.\n");
+        break;
+    printf("------------------------------------------\n");   
+    }
+    printf("\n\n");
+    int ageYears, ageMonths, ageDays;
+    calculateAge(birthYear, birthMonth, birthDay, &ageYears, &ageMonths, &ageDays);
+
+    printf("Your age is: %d years, %d months, and %d days.\n", ageYears, ageMonths, ageDays);
+    printf("------------------------------------------\n");
+     }
+    else if(ema==4)
+    {while(1){
+    printf("--------------------------------------\n");
+    printf("From the dropdown list select what you want to solve.\n");
+    printf("--------------------------------------\n\n");
+    printf(" AREA ------------------------- Press=1\n ");
+    printf("Perimeter -------------------- Press=2\n ");
+    
+    printf("Matrix ----------------------- Press=3\n ");
+    printf("GIF[] -------------------------Press=4\n ");
+    printf("Complex Numbers----------------Press=5\n ");
+    printf("Factorial ---------------------Press=6\n\n");
+    printf("Exit ---------------------------Press=0\n\n");
+    printf("--------------------------------------\n");
+    printf("let me know what you want to solve = ");
+    scanf("%d",&a);
+    printf("--------------------------------------\n");
+    if (a==1) 
+    while(1){
+    {   printf("Area:-\n");
+        printf("       Square-------------- Press=1\n ");
+        printf("      Rectangle----------- Press=2\n ");
+        printf("      Circle ------------- Press=3\n ");
+        printf("      Triangle ----------- Press=4\n ");
+        printf("      Cube --------------- Press=5\n ");
+        printf("      Cuboid ------------- Press=6\n ");
+        printf("      cylender ----------- Press=7\n ");
+        printf("      Elipse ------------- Press=8\n ");
+        printf("       Exit  ---------------Press=0\n ");
+        printf("-----------------------------------\n");
+        printf("Option = ");
+        scanf("%d",&b);
+        if(b==0){
+            break;
+        }
+    }//if bracket
+    switch(b)
+    {case 1:
+    float sl;
+        printf("Area of Square:- \n \n "); 
+        printf("             Length of side = ");
+        scanf("%f",&sl);
+        printf("____________________\n");
+        printf("area of square = %.2f \n",sl*sl);
+        break;
+    case 2:
+    float rl,rb;
+        printf("Area of Rectangle:- \n \n "); 
+        printf("             Length of side = ");
+        scanf("%f",&rl);
+        printf("              Breadth of side = ");
+        scanf("%f",&rb);
+        printf("____________________\n");
+        printf("area of Rectangle = %.2f \n",rl*rb);
+        break;
+    case 3:
+    float cr;
+        printf("Area of Circle:- \n \n "); 
+        printf("             Radius of Circle = ");
+        scanf("%f",&cr);
+        printf("____________________\n");
+        printf("area of Circle = %.2f \n",3.14*(cr*cr));
+        break;
+    case 4:
+    float trib,trih;
+    printf("Area of Triangle:- \n \n ");
+    printf("             Length of Base = ");
+    scanf("%f",&trib);
+    printf("             Length of Height = ");
+    scanf("%f",&trih);
+    printf("____________________\n");
+    printf("area of Triangle = %.2f \n",0.5*(trib*trih));
+    break;
+    case 5:
+    float csl;
+       printf("Area of Cube:- \n \n "); 
+       printf("             Length of side = ");
+       scanf("%f",&csl);
+       printf("____________________\n");
+       printf("area of Cube = %.2f \n",csl*csl*csl);
+        break;
+    case 6:
+    float crl,crb,crh;
+        printf("Area of Cuboid :- \n \n "); 
+        printf("             Length of side = ");
+        scanf("%f",&crl);
+        printf("              Breadth of side = ");
+        scanf("%f",&crb);
+        printf("              Height of side = ");
+        scanf("%f",&crh);
+        printf("____________________\n");
+        printf("area of Cuboid = %.2f \n",crl*(crb*crh));
+        break;
+    case 7:
+    int ocy;
+        printf("Area of Cylender :- \n \n ");
+        while(1){
+        printf("_____________________________");
+        printf("\n    Curved Surfave area----press =1\n ");
+        printf("    Total Surfave area-----press =2\n \n");
+        printf("    Exit ------------------Press =0\n");
+        printf("Option = ");
+        scanf("%d",&ocy);
+        printf("--------------------------------------\n");
+            
+        if(ocy==0){
+            break;
+        }
+        switch (ocy)
+            {
+                case 1:
+                float cyr,cyh;
+                printf("Curved Surfave area:-\n ");
+                printf("    Radius of Cylender = ");
+                scanf("%f",&cyr);
+                printf("     Height of Cylender = ");
+                scanf("%f",&cyh);
+                printf("____________________\n");
+                printf("Curved Surfave area of Cylender = %.2f \n",2*3.14*(cyr*cyh));
+                break;
+                case 2:
+                float tcyr,tcyh;
+                printf("Total Surfave area:-\n ");
+                printf("    Radius of Cylender = ");
+                scanf("%f",&tcyr);
+                printf("     Height of Cylender = ");
+                scanf("%f",&tcyh);
+                printf("____________________\n");
+                printf("Total Surfave area of Cylender = %.2f \n",2*3.14*(tcyr*(tcyh+tcyr)));
+                break;
+            }//switch case 2
+            }//while loop end
+            break;
+    case 8:
+    float ea,eb;
+        printf("Area of Elipse:- \n \n "); 
+        printf("             Length of Major Axis = ");
+        scanf("%f",&ea);
+        printf("             Length of Minor Axis = ");
+        scanf("%f",&eb);
+        printf("____________________\n");
+        printf("area of Elipse = %.2f \n",3.14*(ea*eb));
+        break;
+    case 10:
+    }//switch case 1
+    printf("--------------------------------------\n\n\n");
+    }//lower while loop
+    
+    if (a==2) 
+    while(1){
+       {printf("Perimeter:-\n");
+        printf("       Square-------------- Press=1\n ");
+        printf("      Rectangle----------- Press=2\n ");
+        printf("      Circle ------------- Press=3\n ");
+        printf("      Triangle ----------- Press=4\n ");
+        printf("      Cube --------------- Press=5\n ");
+        printf("      Cuboid ------------- Press=6\n\n ");
+        printf("      Exit  ---------------Press=0\n ");
+        printf("-----------------------------------\n");
+        printf("Option = ");
+        scanf("%d",&bb);
+        if(bb==0){
+            break;}
+        
+    }//while of perimeter
+    switch(bb)
+        {case 1:
+        float ps;
+        printf("Perimeter of Square:- \n \n "); 
+        printf("             Length of side = ");
+        scanf("%f",&ps);
+        printf("____________________\n");
+        printf("Perimeter of square = %.2f \n",4*ps);
+        break;
+        
+        case 2:
+        float prl,prb;
+        printf("Perimeter of Rectangle:- \n \n "); 
+        printf("             Length of side = ");
+        scanf("%f",&prl);
+        printf("              Breadth of side = ");
+        scanf("%f",&prb);
+        printf("____________________\n");
+        printf("Perimeter of Rectangle = %.2f \n",(prl+prb)*2);
+        break;
+        case 3:
+        float pc;
+        printf("Perimeter of Circle:- \n \n "); 
+        printf("             Radius of Circle = ");
+        scanf("%f",&pc);
+        printf("____________________\n");
+        printf("Perimeter of Circle = %.2f \n",(2*3.14)*pc);
+        break;
+        case 4:
+        float td,i,sum=0;
+        printf("Perimeter of Triangle:- \n \n ");
+        while(i<3)
+        {
+            printf("           Enter the Side Length = ",i);
+            scanf("%f",&td);
+            sum=sum+td;
+            i++;
+        }
+        printf("____________________\n");
+        printf("Perimeter of triangle is= %.02f",sum);
+        break;
+        case 5:
+        float cus;
+        printf("Perimeter of Cube:- \n \n ");
+        printf("           Side of Cube = ");
+        scanf("%f",&cus);
+        printf("____________________\n");
+        printf("Perimeter of Cube =%.02f",12*cus);
+        break;
+        case 6:
+        float cul,cub,cuh;
+        printf("Perimeter of Cuboid:- \n \n ");
+        printf("            Lenght of Cuboid = ");
+        scanf("%f",&cul);
+        printf("             Breadth of Cuboid = ");
+        scanf("%f",&cub);
+        printf("             Height of Cuboid = ");
+        scanf("%f",&cuh);
+        printf("____________________\n");
+        printf("Perimeter of Cuboid =%.02f",4*cul+4*cub+4*cuh);
+        break;
+        }
+        printf("--------------------------------------\n");
+    }//while loop 2
+    
+    if(a==3)
+    while(1){
+        {printf("Matrix Calculation ------------Press  =1\n\n");
+        printf("Exit ---------------------------Press =0\n");
+        printf("--------------------------------\n"); 
+        printf("Opinion = ");
+        scanf("%d",&matcode);
+        if(matcode==0)
+        {
+            break;
+        }
+        else
+        {
+            int n;
+    float matrix[10][10];
+    printf("Enter the size of the square matrix: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n >10) 
+    {
+        printf("Invalid matrix size.\n");
+        return 1;
+    }
+    printf("Enter the elements of the matrix in the form:-\n");
+    printf(" 1 0 0 \n 0 1 0 \n 0 0 1\n\n");
+    printf("____________________\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%f", &matrix[i][j]);
+        }
+    }
+
+    float det = determinant(matrix, n);
+    printf("\n ____________________\n");
+    printf("Determinant of the matrix is: %.2f\n\n", det);
+        }
+        
+        }  //if loop 4
+    }//while loop of 4
+    
+    if(a==4)
+    while(1){
+        {printf("GIF Calculation ------------Press  =1\n\n");
+        printf("Exit ------------------------Press =0\n");
+        printf("--------------------------------\n"); 
+        printf("Opinion = ");
+        scanf("%d",&gif);
+        if(gif==0){
+            break;
+        }
+        else{
+            GIF();
+            }
+        }//if condition
+    }//while loop
+    if(a==5)
+    while(1){
+    struct complex c[5],c3;
+    c3.real=0,c3.imag=0;
+    
+    int aaaa,i;
+    printf("Complex Numbers (a+ib):-\n\n ");
+    printf("Complex Solving------------------- Press=1\n\n");
+    printf(" Exit ----------------------------- Press=0\n");
+    printf("------------------------\n");
+    printf("Opinion = ");
+    scanf("%d",&comp);
+    printf("____________________\n");
+    if(comp==0){
+        break;
+    }
+    else{
+    printf("Enter Total number of Complex Number = ");
+    scanf("%d",&aaaa);
+    for(i=0;i<aaaa;i++)
+    {//struct complex num;
+    printf("\nComplex Number %d:- \n",i+1);
+    printf("                Enter real Value = ");
+    scanf("%d",&c[i].real);
+    printf("            Enter imaginary value= ");
+    scanf("%d",&c[i].imag);
+        printf("\nThe complex value is = %d+%di",c[i].real,c[i].imag);
+        c3.real=c3.real+c[i].real;
+        c3.imag=c3.imag+c[i].imag;
+    printf("----------------------------------\n");
+    }
+    printf("Addition of complex Number is %d+%di\n",c3.real,c3.imag);
+    printf("----------------------------------\n");
+    }
+}//while slash
+    
+    if(a==6)
+    while(1){
+        {printf("Factorial Calculation ------------------Press =1\n\n");
+        printf("Exit -----------------------------------Press =0\n");
+        printf("--------------------------------\n"); 
+        printf("Opinion = ");
+        scanf("%d",&fact);
+        if(fact==0)
+        {
+           break; 
+        }//if loop
+        else
+        {
+            factorial();
+        }
+        }//big if 7 loop here
+        }//while loop of 7 
+    if(a==0){
+        break;}
+    }//emma ==4 code
+    
+    }//main while loop to be always beyound
+    }//int main loop
+}
+Output:-
+shree Ganeshay Namah
+--------------------------------------
+Hello Friends I am Olive Green 
+
+ I am here to help you out with various intresting fields
+ So Let's go and Roll the Intro.
+--------------------------------------
+From the dropdown list select what you want to Explore.
+--------------------------------------
+
+Email Creation ----------------------Press = 1
+Password Creation -------------------Press = 2
+AAYU --------------------------------press = 3
+Mathematics -------------------------Press = 4
+
+Exit --------------------------------Press = 0
+_____________________________________________
+Opinion = 1
+This is a program to help you make your Email Id's more easily
+ -----------------------------------
+
+Enter your full name in small letters
+ (name/middle name/surname) :: shivamraj babanrao matkar
+
+Enter your date of birth :: 07 10 2005
+-----------------------------------
+Here are some suggestions:- 
+
+        shivamraj.matkar@gmail.com 
+        shivamraj.babanrao@gmail.com 
+        shivamraj.72005@gmail.com 
+        shivamraj10babanrao@gmail.com
+        babanrao.matkar7@gmail.com-----------------------------------
+
+Choose your favourite Email ID and also have a look to our password create feature to make strong passwords
+
+--------------------------------------
+From the dropdown list select what you want to Explore.
+--------------------------------------
+
+Email Creation ----------------------Press = 1
+Password Creation -------------------Press = 2
+AAYU --------------------------------press = 3
+Mathematics -------------------------Press = 4
+
+Exit --------------------------------Press = 0
+_____________________________________________
+Opinion = 2
+We can also work on passwords here
+_________________________
+Enter your password = shivam
+
+ERROR!! password does not contain a special character
+ERROR!! password does not contain a numerical value
+_________________________
+Enter your password = shiv#we
+
+ERROR!! password does not contain a numerical value
+_________________________
+Enter your password = shiv@34#je
+
+Password created Successfully!!!
+
+-----------------------------------
+--------------------------------------
+From the dropdown list select what you want to Explore.
+--------------------------------------
+
+Email Creation ----------------------Press = 1
+Password Creation -------------------Press = 2
+AAYU --------------------------------press = 3
+Mathematics -------------------------Press = 4
+
+Exit --------------------------------Press = 0
+_____________________________________________
+Opinion = 3
+
+hello friends! i am AAYU an aging portal
+my work is to calculate your age
+------------------------------------------
+may i know your good name = shivamraj
+Hello shivamraj, I welcome you to this beautiful Portal
+------------------------------------------
+now i am going to calculate age of my new friend shivamraj
+for this i need your date of birth
+------------------------------------------
+Enter your birth year: 2005
+Enter your birth month: 10
+Enter your birth day: 07
+------------------------------------------
+great you are born in October 
+in it we celebrate diwali.
+
+
+Your age is: 18 years, 6 months, and 17 days.
+------------------------------------------
+--------------------------------------
+From the dropdown list select what you want to Explore.
+--------------------------------------
+
+Email Creation ----------------------Press = 1
+Password Creation -------------------Press = 2
+AAYU --------------------------------press = 3
+Mathematics -------------------------Press = 4
+
+Exit --------------------------------Press = 0
+_____________________________________________
+Opinion = 4
+--------------------------------------
+From the dropdown list select what you want to solve.
+--------------------------------------
+
+ AREA ------------------------- Press=1
+ Perimeter -------------------- Press=2
+ Matrix ----------------------- Press=3
+ GIF[] -------------------------Press=4
+ Complex Numbers----------------Press=5
+ Factorial ---------------------Press=6
+
+Exit ---------------------------Press=0
+
+--------------------------------------
+let me know what you want to solve = 1
+--------------------------------------
+Area:-
+       Square-------------- Press=1
+       Rectangle----------- Press=2
+       Circle ------------- Press=3
+       Triangle ----------- Press=4
+       Cube --------------- Press=5
+       Cuboid ------------- Press=6
+       cylender ----------- Press=7
+       Elipse ------------- Press=8
+        Exit  ---------------Press=0
+ -----------------------------------
+Option = 1
+Area of Square:- 
+ 
+              Length of side = 15
+____________________
+area of square = 225.00 
+--------------------------------------
+
+
+Area:-
+       Square-------------- Press=1
+       Rectangle----------- Press=2
+       Circle ------------- Press=3
+       Triangle ----------- Press=4
+       Cube --------------- Press=5
+       Cuboid ------------- Press=6
+       cylender ----------- Press=7
+       Elipse ------------- Press=8
+        Exit  ---------------Press=0
+ -----------------------------------
+Option = 3
+Area of Circle:- 
+ 
+              Radius of Circle = 10
+____________________
+area of Circle = 314.00 
+--------------------------------------
+
+
+Area:-
+       Square-------------- Press=1
+       Rectangle----------- Press=2
+       Circle ------------- Press=3
+       Triangle ----------- Press=4
+       Cube --------------- Press=5
+       Cuboid ------------- Press=6
+       cylender ----------- Press=7
+       Elipse ------------- Press=8
+        Exit  ---------------Press=0
+ -----------------------------------
+Option = 6
+Area of Cuboid :- 
+ 
+              Length of side = 14
+              Breadth of side = 74
+              Height of side = 10
+____________________
+area of Cuboid = 10360.00 
+--------------------------------------
+
+
+Area:-
+       Square-------------- Press=1
+       Rectangle----------- Press=2
+       Circle ------------- Press=3
+       Triangle ----------- Press=4
+       Cube --------------- Press=5
+       Cuboid ------------- Press=6
+       cylender ----------- Press=7
+       Elipse ------------- Press=8
+        Exit  ---------------Press=0
+ -----------------------------------
+Option = 7
+Area of Cylender :- 
+ 
+ _____________________________
+    Curved Surfave area----press =1
+     Total Surfave area-----press =2
+ 
+    Exit ------------------Press =0
+Option = 1
+--------------------------------------
+Curved Surfave area:-
+     Radius of Cylender = 10
+     Height of Cylender = 5
+____________________
+Curved Surfave area of Cylender = 314.00 
+_____________________________
+    Curved Surfave area----press =1
+     Total Surfave area-----press =2
+ 
+    Exit ------------------Press =0
+Option = 2
+--------------------------------------
+Total Surfave area:-
+     Radius of Cylender = 40
+     Height of Cylender = 1
+____________________
+Total Surfave area of Cylender = 10299.20 
+_____________________________
+    Curved Surfave area----press =1
+     Total Surfave area-----press =2
+ 
+    Exit ------------------Press =0
+Option = 0
+--------------------------------------
+--------------------------------------
+
+
+Area:-
+       Square-------------- Press=1
+       Rectangle----------- Press=2
+       Circle ------------- Press=3
+       Triangle ----------- Press=4
+       Cube --------------- Press=5
+       Cuboid ------------- Press=6
+       cylender ----------- Press=7
+       Elipse ------------- Press=8
+        Exit  ---------------Press=0
+ -----------------------------------
+Option = 0
+--------------------------------------
+From the dropdown list select what you want to solve.
+--------------------------------------
+
+ AREA ------------------------- Press=1
+ Perimeter -------------------- Press=2
+ Matrix ----------------------- Press=3
+ GIF[] -------------------------Press=4
+ Complex Numbers----------------Press=5
+ Factorial ---------------------Press=6
+
+Exit ---------------------------Press=0
+
+--------------------------------------
+let me know what you want to solve = 3
+--------------------------------------
+Matrix Calculation ------------Press  =1
+
+Exit ---------------------------Press =0
+--------------------------------
+Opinion = 1
+Enter the size of the square matrix: 3
+Enter the elements of the matrix in the form:-
+ 1 0 0 
+ 0 1 0 
+ 0 0 1
+
+
+1 2 3
+5 0 7
+6 2 5
+
+ ____________________
+Determinant of the matrix is: 50.00
+
+Matrix Calculation ------------Press  =1
+
+Exit ---------------------------Press =0
+--------------------------------
+Opinion = 1
+Enter the size of the square matrix: 3
+Enter the elements of the matrix in the form:-
+ 1 0 0 
+ 0 1 0 
+ 0 0 1
+
+____________________
+5 10 3
+-2 -4 6
+-1 -2 1
+
+ ____________________
+Determinant of the matrix is: 0.00
+
+Matrix Calculation ------------Press  =1
+
+Exit ---------------------------Press =0
+--------------------------------
+Opinion = 0
+--------------------------------------
+From the dropdown list select what you want to solve.
+--------------------------------------
+
+ AREA ------------------------- Press=1
+ Perimeter -------------------- Press=2
+ Matrix ----------------------- Press=3
+ GIF[] -------------------------Press=4
+ Complex Numbers----------------Press=5
+ Factorial ---------------------Press=6
+
+Exit ---------------------------Press=0
+--------------------------------------
+let me know what you want to solve = 5
+--------------------------------------
+Complex Numbers (a+ib):-
+
+ Complex Solving------------------- Press=1
+
+ Exit ----------------------------- Press=0
+------------------------
+Opinion = 1
+____________________
+Enter Total number of Complex Number = 3
+
+Complex Number 1:- 
+                Enter real Value = 1
+            Enter imaginary value= 3
+
+The complex value is = 1+3i
+----------------------------------
+
+Complex Number 2:- 
+                Enter real Value = 2
+            Enter imaginary value= 4
+
+The complex value is = 2+4i
+----------------------------------
+
+Complex Number 3:- 
+                Enter real Value = 5
+            Enter imaginary value= 9
+
+The complex value is = 5+9i
+----------------------------------
+Addition of complex Number is 8+16i
+----------------------------------
+Complex Numbers (a+ib):-
+
+ Complex Solving------------------- Press=1
+
+ Exit ----------------------------- Press=0
+------------------------
+Opinion = 0
+____________________
+--------------------------------------
+let me know what you want to solve = 6
+--------------------------------------
+Factorial Calculation ------------------Press =1
+
+Exit -----------------------------------Press =0
+--------------------------------
+Opinion = 1
+Factorial of a number represented by:-
+ n!=n(n-1)(n-2)(n-3)------------3x2x1 
+
+enter the number = 5
+The value for 5! = 120 
+--------------------------------------
+Factorial Calculation ------------------Press =1
+
+Exit -----------------------------------Press =0
+--------------------------------
+Opinion = 0
+--------------------------------------
+From the dropdown list select what you want to solve.
+--------------------------------------
+
+ AREA ------------------------- Press=1
+ Perimeter -------------------- Press=2
+ Matrix ----------------------- Press=3
+ GIF[] -------------------------Press=4
+ Complex Numbers----------------Press=5
+ Factorial ---------------------Press=6
+
+Exit ---------------------------Press=0
+
+--------------------------------------
+let me know what you want to solve = 0
+--------------------------------------
+--------------------------------------
+From the dropdown list select what you want to Explore.
+--------------------------------------
+
+Email Creation ----------------------Press = 1
+Password Creation -------------------Press = 2
+AAYU --------------------------------press = 3
+Mathematics -------------------------Press = 4
+
+Exit --------------------------------Press = 0
+_____________________________________________
+Opinion = 0
+
+
+   ******** THANK YOU ********
+    Cdt.Shivamraj Babanrao Matkar
+               (NDA)
+
